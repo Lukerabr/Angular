@@ -1,0 +1,36 @@
+<h2>Deseja realmente remover este usuário?</h2>
+
+<div *ngIf="user">
+    <label>ID
+        <strong>{{user.id}}</strong>
+    </label>
+    <br>
+    <br>
+    <label>Primeiro nome
+        <strong>{{user.primeiro_Nome}}</strong>
+    </label>
+    <br>
+    <br>
+    <label>Ultimo nome
+        <strong>{{user.ultimo_Nome}}</strong>
+    </label>
+    <br>
+    <br>
+    <label>Data de nascimento
+        <strong>{{user.data_nascimento}}</strong>
+    </label>
+    <br>
+    <br>
+    <label>Email
+        <strong>{{user.email}}</strong>
+    </label>
+    <br>
+    <br>
+    <label>Endereço
+        <strong>{{user.endereco}}</strong>
+    </label>
+    <br>
+    <button (click)="delete()">Confirmar!</button>
+    <br>
+    <button (click)="cancelar()">Cancelar</button>
+</div>

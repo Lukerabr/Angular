@@ -1,0 +1,30 @@
+<h2>Atualizar usuário</h2>
+
+<div *ngIf="request">
+    <label>Primeiro nome
+        <input placeholder="Insira o primeiro nome: " [(ngModel)]="request.primeiro_Nome">
+    </label>
+    <br>
+    <br>
+    <label>Ultimo nome
+        <input placeholder="Insira o ultimo nome: " [(ngModel)]="request.ultimo_Nome">
+    </label>
+    <br>
+    <br>
+    <label>Data de nascimento
+        <input placeholder="Insira a data de nascimento: " [(ngModel)]="request.data_nascimento">
+    </label>
+    <br>
+    <br>
+    <label>Email
+        <input placeholder="Insira o email: " [(ngModel)]="request.email">
+    </label>
+    <br>
+    <br>
+    <label>Endereço
+        <input placeholder="Insira o endereço: " [(ngModel)]="request.endereco">
+    </label>
+    <br>
+    <button (click)="update()">Atualizar</button>
+</div>
+<br><br>
