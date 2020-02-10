@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ResponseUsers, ResponseCreate, RequestCreate, ResponseUser, RequestUpdate, ResponseUpdate } from './user.model';
+import { User } from './user.model';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from 'rxjs';
 
@@ -8,33 +8,41 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private url = "https://reqres.in/api/users";
-  userService: any;
+  //private url = "https://reqres.in/api/users";
+  //userService: any;
+
+  Users: User[] = [];
 
   constructor(private http: HttpClient) { }
 
 
-  getUsers(): Observable<ResponseUsers>{
-    return this.http.get<ResponseUsers>(this.url);
+  getUsers(): User[]{
+    return this.Users;
   }
 
-  createUser(request: RequestCreate): Observable<ResponseCreate>{
-     return this.http.post<ResponseCreate>(this.url, request)
+  createUser(request: User): User{
+    request.id = '' + this.Users.length;
+    this.Users[this.Users.length] = request;
+     return request;
   }
 
-  getUser(id: string): Observable<ResponseUser>{
-    const _url = '$(this.url)/$(id)'
-    return this.http.get<ResponseUser>(this.url);
+  getUser(id: string): User{
+     var idNum: number = Number(id);
+     if(this.Users[idNum] != undefined)
+      return this.Users[idNum];
+    return undefined;
   }
 
-  updateUser(id: string, request: RequestUpdate): Observable<ResponseUpdate>{
-    const _url = '$(this.url)/$(id)'
-    return this.http.put<ResponseUpdate>(this.url, request);
+  updateUser(id: string, request: User): User{
+    var idNum: number = Number(id);
+    this.Users[idNum] = request;
+    return request;
   }
   
-  deleteUser(id: string): Observable<any>{
-    const _url = '$(this.url)/$(id)';
-    return this.http.delete<any>(this.url);
+  deleteUser(id: string): any{
+    var idNum: number = Number(id);
+    this.Users[idNum] = undefined;
+    return;
   }
 
 }

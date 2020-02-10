@@ -2,12 +2,12 @@
 
 <div>
     <label>Primeiro nome
-        <input placeholder="Insira o primeiro nome: " [(ngModel)]="request.primeiro_Nome">
+        <input placeholder="Insira o primeiro nome: " [(ngModel)]="request.primeiro_nome">
     </label>
     <br>
     <br>
     <label>Ultimo nome
-        <input placeholder="Insira o ultimo nome: " [(ngModel)]="request.ultimo_Nome">
+        <input placeholder="Insira o ultimo nome: " [(ngModel)]="request.ultimo_nome">
     </label>
     <br>
     <br>
@@ -30,9 +30,9 @@
 
 <div *ngIf="response">
     <h3>Criado com sucesso!</h3>
-    <label>Primeiro nome: {{response.primeiro_Nome}}</label>
+    <label>Primeiro nome: {{response.primeiro_nome}}</label>
     <br> 
-    <label>Ultimo nome: {{response.ultimo_Nome}}</label>
+    <label>Ultimo nome: {{response.ultimo_nome}}</label>
     <br>
     <label>Data de Nascimento: {{response.data_nascimento}}</label>
     <br>
@@ -40,7 +40,7 @@
     <br>
     <label>Endereço: {{response.endereco}}</label>
     <br>
-    <label>Criado em: {{response.createdAt}}</label>
-    <br>
+    <!-- <label>Criado em: {{response.createdAt}}</label>
+    <br> -->
     <label>Id: {{response.id}}</label>
 </div> 

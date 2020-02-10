@@ -17,16 +17,13 @@ export class DeleteUserComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.userService.getUser(this.id).subscribe(res => {
-      this.user = res.data;
-    })
+    this.user = this.userService.getUser(this.id);
   }
 
   delete(){
-    this.userService.deleteUser(this.id).subscribe(res => {
-      alert('Removido com sucesso!');
-      this._route.navigate(['/users']);
-    })
+    this.userService.deleteUser(this.id);
+    alert('Removido com sucesso!');
+    this._route.navigate(['/users']);
   }
   
   cancelar(){

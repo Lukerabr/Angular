@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RequestCreate, ResponseCreate } from '../user.model';
+import { User } from '../user.model';
 import { UserService } from '../user.service';
 
 @Component({
@@ -9,15 +9,16 @@ import { UserService } from '../user.service';
 })
 export class CreateUserComponent implements OnInit {
 
-  request: RequestCreate = {
+  request: User = {
+    id: '',
     data_nascimento: '',
     email: '',
-    primeiro_Nome: '',
-    ultimo_Nome: '',
+    primeiro_nome: '',
+    ultimo_nome: '',
     endereco: ''
   }
 
-  response: ResponseCreate
+  response: User
 
 
   constructor(private userService: UserService) { }
@@ -26,8 +27,6 @@ export class CreateUserComponent implements OnInit {
   }
 
   save(){
-    this.userService.createUser(this.request).subscribe(res => {
-      this.response = res
-    })
+    this.response = this.userService.createUser(this.request);
   }
 }

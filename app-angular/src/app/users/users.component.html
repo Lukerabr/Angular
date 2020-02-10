@@ -2,16 +2,26 @@
 
 <table>
     <thead>
+        <td>Id</td>
         <td>Primeiro nome</td>
         <td>Ultimo nome</td>
+        <td>Data Nascimento</td>
+        <td>Email</td>
+        <td>Endereço</td>
         <td>Opções</td>
     </thead>
     <tbody>
-        <tr *ngFor="let user of responseUsers.data">
-            <td>{{user.primeiro_Nome}}</td>
-            <td>{{user.ultimo_Nome}}</td>
-            <td><a routerLink="/user/update/{{user.id}}">EDITAR</a> |
-            <a routerLink="/user/delete/{{user.id}}">REMOVER</a></td>
+        <ng-container *ngFor="let user of responseUsers">
+        <tr *ngIf="user">
+            <td>{{user.id}}</td>
+            <td>{{user.primeiro_nome}}</td>
+            <td>{{user.ultimo_nome}}</td>
+            <td>{{user.data_nascimento}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.endereco}}</td>
+            <td><a routerLink="/users/update/{{user.id}}">EDITAR</a> |
+            <a routerLink="/users/delete/{{user.id}}">REMOVER</a></td>
         </tr>
+        </ng-container>
     </tbody>
 </table>
